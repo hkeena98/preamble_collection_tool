@@ -41,11 +41,8 @@ def project_identifier_collector():
                         identifier = SourceIndentifier(i)
                         identifier.print_identifier()
                         append_project_csv(project, identifier)
-
                     gi_log_file.close()
-                    
                 time.sleep(.05)
-
 
 """
 """
@@ -69,10 +66,7 @@ def append_project_csv(project, identifier):
 """
 def generate_dataset():
     pass
-
-
-
-                
+          
 """
 """    
 def main():

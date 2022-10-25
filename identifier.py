@@ -1,6 +1,8 @@
 """
 """
 class SourceIndentifier:
+    """
+    """
     def __init__(self, file_line):
         try:
             parsed = self.parse_grabid_file(file_line)
@@ -17,16 +19,18 @@ class SourceIndentifier:
                 self.id_lang = parsed[3]
                 self.id_num = parsed[4]
                 self.id_loc = parsed[5]
-            
-
         except:
             print("IDENTIFIER PARSE ERROR")
-        
+    
+    """
+    """   
     def parse_grabid_file(self, file_line):
         parsed_lines = file_line.split()
         print("Parsed Line:", parsed_lines)
         return parsed_lines
     
+    """
+    """
     def print_identifier(self):
         print("\nIDENTIFIER DETAILS\n")
         print("Identifier Variable Type:", self.id_varType)

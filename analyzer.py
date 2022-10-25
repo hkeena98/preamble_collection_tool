@@ -1,4 +1,5 @@
 """
 """
-class Analyzer:
+def analyze_dataset():
     pass
+
