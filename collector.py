@@ -8,7 +8,7 @@ import subprocess
 import time
 import csv
 
-from identifier import SourceIndentifier
+from identifier import SourceIdentifier
 
 
 """
@@ -38,8 +38,8 @@ def project_identifier_collector():
                     gi_log_file.close()
                     gi_log_file = open("reports/"+project+"/grabidentifiers/"+name+".xml.log.txt", "r")
                     for i in gi_log_file.readlines()[:-1]:
-                        identifier = SourceIndentifier(i)
-                        identifier.print_identifier()
+                        identifier = SourceIdentifier(i, project)
+                        identifier.print_identifier_details()
                         append_project_csv(project, identifier)
                     gi_log_file.close()
                 time.sleep(.05)
@@ -50,12 +50,12 @@ def append_project_csv(project, identifier):
     try: 
         csv_file_name = "reports/"+project+"/"+project+"-identifiers.csv"
         if os.path.exists(csv_file_name) == False:
-            header = ['VARIABLE_TYPE', 'IDENTIFIER_NAME', 'IDENTIFIER_USE_CASE', 'LANGUAGE', 'NUM', 'FILE_LOCATION']
+            header = ['VARIABLE_TYPE', 'IDENTIFIER_NAME', 'IDENTIFIER_USE_CASE', 'LANGUAGE', 'NUM', 'FILE_LOCATION', 'PROJECT']
             with open(csv_file_name, 'w', encoding='UTF8', newline='') as csv_file:
                 writer = csv.writer(csv_file)
                 writer.writerow(header)
         else:
-            id_tuple = (identifier.id_varType, identifier.id_name, identifier.id_useCase, identifier.id_lang, identifier.id_num, identifier.id_loc)
+            id_tuple = (identifier.id_varType, identifier.id_name, identifier.id_useCase, identifier.id_lang, identifier.id_num, identifier.id_loc, identifier.project)
             with open(csv_file_name, 'a', encoding='UTF8', newline='') as csv_file:
                 writer = csv.writer(csv_file)
                 writer.writerow(id_tuple)
@@ -71,8 +71,8 @@ def generate_dataset():
 """    
 def main():
     print("Beginning Preamble Collection...\n")
-
     project_identifier_collector()
+
 
 # Calls Main
 if __name__=='__main__':
