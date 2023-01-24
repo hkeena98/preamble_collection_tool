@@ -34,6 +34,7 @@ def seperate_identifiers_all():
             proj_dict = {    
                 project : new_project
             }
+            print(proj_dict)
             DATASET_PROJECTS.update(proj_dict)
     
     
