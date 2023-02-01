@@ -22,6 +22,7 @@ class SourceIdentifier:
                 self.id_num = parsed[4]
                 self.id_loc = parsed[5]
             self.project = project
+            self.spiral_analyzed = ""
         except:
             print("IDENTIFIER PARSE ERROR")
     
@@ -34,6 +35,11 @@ class SourceIdentifier:
     
     """
     """
+    def set_spiral(self, spiral_parts):
+        self.spiral_analyzed = spiral_parts
+
+    """
+    """
     def print_identifier_details(self):
         print("\nIDENTIFIER DETAILS\n")
         print("Identifier Variable Type:", self.id_varType)
@@ -42,4 +48,5 @@ class SourceIdentifier:
         print("Identifier Language:", self.id_lang)
         print("Identifier Number:", self.id_num)
         print("Identifier File Location:", self.id_loc)
-        print("Identifer Home Project:", self.project)
+        print("Identifier Home Project:", self.project)
+        print("Idnetifier Spiral Split:", self.spiral_analyzed)
