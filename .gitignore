@@ -39,6 +39,10 @@
 ehthumbs.db
 Thumbs.db
 
+# Output generated files #
+######################
+*.csv
+
 # Anything in the Input Project Folder #
 ########################################
 projects/
@@ -46,3 +50,7 @@ projects/
 # Anything in the Output Reports Folder #
 ########################################
 reports/
+
+# Anything in the Output Analysis Folder #
+#########################################
+Analysis/

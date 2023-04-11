@@ -1,20 +1,22 @@
 """
+Author: Henry Keena
+File: collector.py
+Description: Source file with functions related to collecting identifier raw data from code bases in the 'projects' folder.
 """
 
 # Declares Imports
-import sys
 import os
 import subprocess
 import time
 import csv
-
 from identifier import SourceIdentifier
 
-
 """
+Function: project_identifier_collector()
+Description: Primary function for collecting project identifier raw data. Searches through each line in each source file of all projects in 'projects' folder.
 """
 def project_identifier_collector():
-    print("Collection...")
+    print("Conducting Collection...")
     root = "projects/"
     path = os.path.join(root, "")
     for path, subdirs, files in os.walk(root):
@@ -45,6 +47,11 @@ def project_identifier_collector():
                 time.sleep(.05)
 
 """
+Function: append_project_csv(project, identifier)
+Description: Function that appends csv report file for an individual project.
+Arguments:
+    - project : source project name.
+    - identifiers : identifier data to write into csv file.
 """
 def append_project_csv(project, identifier):
     try: 
@@ -61,19 +68,3 @@ def append_project_csv(project, identifier):
                 writer.writerow(id_tuple)
     except:
         print("CSV FILE ERROR")
-
-"""
-"""
-def generate_dataset():
-    pass
-          
-"""
-"""    
-def main():
-    print("Beginning Preamble Collection...\n")
-    project_identifier_collector()
-
-
-# Calls Main
-if __name__=='__main__':
-    main()

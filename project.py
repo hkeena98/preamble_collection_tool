@@ -1,15 +1,23 @@
 """
+Author: Henry Keena
+File: project.py
+Description: Source file for SourceProject object class.
 """
 
+# Declares Imports
 import csv
-
 from identifier import SourceIdentifier
-
 
 """
 """
 class SourceProject:
     """
+    Function: __init__(self, project_name, filename)
+    Description: Initialization Function for SourceProject instances.
+    Arguments:
+        - self : the instance of the class object.
+        - project_name : name of the source project.
+        - filename : name of the source file used to gain metadata about source project.
     """
     def __init__(self, project_name, filename):
         print("Building New Project -", project_name)        
@@ -26,6 +34,12 @@ class SourceProject:
             print("PROJECT OBJECT ERROR - CONSTRUCTOR ERROR")
             
     """
+    Function: populate_buckets(self, filename, project_name)
+    Description: 
+    Arguments:
+        - self : the instance of the class object.
+        - filename : name of the source file used to gain metadata about source project.
+        - project_name : name of the source project.
     """
     def populate_buckets(self, filename, project_name):
         print("Populating Project Buckets")
@@ -49,9 +63,12 @@ class SourceProject:
                     self.parameter_bucket.append(ident)
         except:
             print("PROJECT OBJECT ERROR - POPULATE BUCKETS ERROR")
-                    
-            
+                         
     """
+    Function: print_project_details(self)
+    Description: Funtion that prints the attribute details of the class instance.
+    Arguments:
+        - self : the instance of the class object.
     """
     def print_project_details(self):
         print("\nPROJECT DETAILS\n")
@@ -62,16 +79,3 @@ class SourceProject:
         print("Number of Declaration Identifiers:", len(self.declaration_bucket))
         print("Number of Class Identifiers:", len(self.class_bucket))
         print("Number of Parameter Identifiers:", len(self.parameter_bucket))
-
-
-
-"""
-
-def main():
-    print("Project Test")
-    test_proj = Project("Bitcoin", "reports/bitcoin/bitcoin-identifiers.csv")
-    #test_proj.attribute_bucket[0].print_identifier()
-    test_proj.print_project_details()
-
-main()
-"""
